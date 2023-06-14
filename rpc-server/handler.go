@@ -45,7 +45,7 @@ func sortChatName(chatName string, senderName string) (string, error) { //valida
 
 func (s *IMServiceImpl) Send(ctx context.Context, req *rpc.SendRequest) (*rpc.SendResponse, error) {
 
-	fmt.Println("send request test:\n", req)
+	//fmt.Println("send request test:\n", req)
 	resp := rpc.NewSendResponse()
 
     db, err := sql.Open("sqlite3", "MessageDatabase.db")
@@ -101,7 +101,7 @@ func (s *IMServiceImpl) Pull(ctx context.Context, req *rpc.PullRequest) (*rpc.Pu
 
     var queryString string
 
-    fmt.Println(chat, req)
+    //fmt.Println(chat, req)
     if *reverse {
     	queryString = "SELECT * FROM message_history WHERE chat=? AND timestamp<=? ORDER BY timestamp DESC LIMIT ?"
     } else {
